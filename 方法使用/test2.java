@@ -16,7 +16,8 @@ public class test2 {
         DIGUI(5);
         System.out.println(add(10));
         System.out.println(sum(1729));
-        System.out.println(fib(4));
+        System.out.println(fib1(4));
+        System.out.println(fib2(4));
     }
     public static int DiGui(int n){
         if(n==1){
@@ -62,14 +63,25 @@ public class test2 {
         }
         return n%10+sum(n/10);
     }
-
     //求斐波那契数列的第n项
     //F(n)=F(n-1)+F(n-2)，n≥3，F(1)=1，F(2)=1。
-    public static int fib(int n){
+    public static int fib1(int n){
         if(n==1||n==2){
             return 1;
         }
-        return fib(n-1)+fib(n-2);
+        return fib1(n-1)+fib1(n-2);
+    }
+    //循环求解
+    public static int fib2(int n){
+        int one=1;
+        int two=1;
+        int cur=0;
+        for (int i = 3; i <=n; i++) {
+            cur=one+two;
+            one=two;
+            two=cur;
+        }
+        return cur;
     }
 
 }
