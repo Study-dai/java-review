@@ -1,4 +1,4 @@
-package 方法使用;
+﻿package 方法使用;
 /*
 方法递归：
 一个方法在执行过程中调用自身，就称为“递归”
@@ -62,6 +62,7 @@ public class test2 {
         }
         return n%10+sum(n/10);
     }
+
     //求斐波那契数列的第n项
     //F(n)=F(n-1)+F(n-2)，n≥3，F(1)=1，F(2)=1。
     public static int fib(int n){
