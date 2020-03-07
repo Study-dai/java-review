@@ -1,5 +1,5 @@
-package 面向对象编程.继承;
-
+﻿package 面向对象编程.继承;
+父类
 public class Animal {
     public String name;
 
