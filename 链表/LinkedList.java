@@ -34,7 +34,7 @@ public class LinkedList {
         return size;
     }
     //尾插法
-    public void AddLast(int elem){
+    public void addLast(int elem){
         LinkedNode node=new LinkedNode(elem);
         if(this.head==null){
             this.head=node;
@@ -47,5 +47,26 @@ public class LinkedList {
         }
         cur.next=node;
     }
-    //
+    //往任意位置插入，第一个数据结点为0号下标
+    public void addIndex(int index,int elem){
+        LinkedNode node=new LinkedNode(elem);
+        //先对Index 进行一个合法校验
+        //这就需要创建一个size方法求长度
+        int len=size();
+        if(index<0||index>len){
+            return;
+        }
+        //如果是0直接头插
+        if(index==0){
+            addFirst(elem);
+            return;
+        }
+        //如果等于len直接尾插
+        if(index==len){
+            addLast(elem);
+            return;
+        }
+        //中间插入，先要找到结点的前一个位置
+    }
+
 }
