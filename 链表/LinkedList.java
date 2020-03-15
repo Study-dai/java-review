@@ -1,4 +1,4 @@
-package 链表;
+﻿package 链表;
 
 public class LinkedList {
     //先创建头结点，有了头结点剩下的都可以获取到
@@ -66,7 +66,8 @@ public class LinkedList {
             addLast(elem);
             return;
         }
-        //中间插入，先要找到结点的前一个位置
+        //中间插入，需要找到结点的前一个位置
+
     }
 
 }
