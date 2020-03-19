@@ -1,4 +1,4 @@
-package 集合框架;
+package 泛型;
 
 import java.util.ArrayList;
 import java.util.Arrays;
