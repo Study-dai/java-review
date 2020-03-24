@@ -1,10 +1,13 @@
-package 二叉树;
+﻿package 二叉树;
 //树的表现形式
 //孩子兄弟表示法
 public class Node {
     int value;
     Node firstchild;
     Node nextBrother;
+
+
+
 }
 /*
 结点的度：一个结点含有的子树的个数称为结点的度
