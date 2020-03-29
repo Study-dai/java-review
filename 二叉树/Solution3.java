@@ -1,9 +1,10 @@
-package 二叉树;
+﻿package 二叉树;
 
 import java.util.LinkedList;
 import java.util.List;
 
 //后序遍历
+思路也是跟前序一样
 public class Solution3 {
     public List<Integer> postorderTraversal(Node root) {
         LinkedList<Node> stack = new LinkedList<>();
