@@ -1,5 +1,6 @@
-package 链表;
+﻿package 链表;
 
+//链表实现
 public class LinkedNode {
     public int data=0;
     public LinkedNode next=null;
