@@ -1,0 +1,101 @@
+Microsoft Windows [版本 10.0.17134.1365]
+(c) 2018 Microsoft Corporation。保留所有权利。
+
+C:\Users\Administrator>MYSQL -U ROOT -P
+MYSQL: [ERROR] MYSQL: option '-P' requires an argument
+
+C:\Users\Administrator>mysql -u root -p
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 2
+Server version: 5.7.27 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| cash               |
+| dai32mall          |
+| db_test1           |
+| ebook              |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+8 rows in set (0.04 sec)
+
+mysql> use db_test1;
+Database changed
+mysql> create table if not exists goods(
+    -> goods_id  int comment '商品编号',
+    ->  goods_name varchar(32) comment '商品名称',
+    ->  unitprice  int comment '单价，单位分',
+    ->  category  varchar(12) comment '商品分类',
+    ->  provider  varchar(64) comment '供应商名称'
+    -> );
+Query OK, 0 rows affected (0.71 sec)
+
+mysql> create table if not exists customer(
+    -> customer_id  int comment '客户编号',
+    ->  name varchar(32) comment '客户姓名',
+    ->  address  varchar(256) comment '客户地址',
+    ->  email  varchar(64) comment '电子邮箱',
+    ->  sex bit comment '性别',
+    ->  card_id varchar(18) comment '身份证'
+    -> );
+Query OK, 0 rows affected (0.59 sec)
+
+mysql> create table if not exists purchase(
+    -> order_id  int comment '订单号',
+    ->  customer_id int comment '客户编号',
+    ->  goods_id  int comment '商品编号',
+    ->  nums  int comment '购买数量'
+    -> );
+Query OK, 0 rows affected (0.83 sec)
+
+mysql> desc goods;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| goods_id   | int(11)     | YES  |     | NULL    |       |
+| goods_name | varchar(32) | YES  |     | NULL    |       |
+| unitprice  | int(11)     | YES  |     | NULL    |       |
+| category   | varchar(12) | YES  |     | NULL    |       |
+| provider   | varchar(64) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> desc customer;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| customer_id | int(11)      | YES  |     | NULL    |       |
+| name        | varchar(32)  | YES  |     | NULL    |       |
+| address     | varchar(256) | YES  |     | NULL    |       |
+| email       | varchar(64)  | YES  |     | NULL    |       |
+| sex         | bit(1)       | YES  |     | NULL    |       |
+| card_id     | varchar(18)  | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> desc purchase;
++-------------+---------+------+-----+---------+-------+
+| Field       | Type    | Null | Key | Default | Extra |
++-------------+---------+------+-----+---------+-------+
+| order_id    | int(11) | YES  |     | NULL    |       |
+| customer_id | int(11) | YES  |     | NULL    |       |
+| goods_id    | int(11) | YES  |     | NULL    |       |
+| nums        | int(11) | YES  |     | NULL    |       |
++-------------+---------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql>
