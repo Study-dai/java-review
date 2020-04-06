@@ -1,0 +1,72 @@
+mysql> CREATE TABLE student (
+    ->  id INT,
+    ->  sn INT comment 'Ñ§ºÅ',
+    ->  name VARCHAR(20) comment 'ÐÕÃû',
+    ->  qq_mail VARCHAR(20) comment 'QQÓÊÏä'
+    -> );
+Query OK, 0 rows affected (0.43 sec)
+
+mysql> desc student;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int(11)     | YES  |     | NULL    |       |
+| sn      | int(11)     | YES  |     | NULL    |       |
+| name    | varchar(20) | YES  |     | NULL    |       |
+| qq_mail | varchar(20) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into student values (100,10000,'ÌÆÈý²Ø',null);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into student values(101,10001,'ËïÎò¿Õ','11111');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> desc student;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int(11)     | YES  |     | NULL    |       |
+| sn      | int(11)     | YES  |     | NULL    |       |
+| name    | varchar(20) | YES  |     | NULL    |       |
+| qq_mail | varchar(20) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select * from student;
++------+-------+-----------+---------+
+| id   | sn    | name      | qq_mail |
++------+-------+-----------+---------+
+|  100 | 10000 | ÌÆÈý²Ø    | NULL    |
+|  101 | 10001 | ËïÎò¿Õ    | 11111   |
++------+-------+-----------+---------+
+2 rows in set (0.00 sec)
+
+mysql> insert into student (id,sn,name) values
+    -> (102,20001,'²ÜÃÏµÂ¡¯),
+    '> (103,20002,'ËïÖÙÄ±¡¯)£»
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ËïÖÙÄ±¡¯)£»' at line 2
+mysql> insert into student (id,sn,name) values
+    -> (102,20001,'²ÜÃÏµÂ¡¯),
+    '> (103,20002,'ËïÖÙÄ±¡¯);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ËïÖÙÄ±¡¯)' at line 2
+mysql> insert into student (id, sn, name) values
+    -> (102, 20001, '²ÜÃÏµÂ'),
+    -> (102, 20002, 'ËïÖÙÄ±');
+Query OK, 2 rows affected (0.07 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++------+-------+-----------+---------+
+| id   | sn    | name      | qq_mail |
++------+-------+-----------+---------+
+|  100 | 10000 | ÌÆÈý²Ø    | NULL    |
+|  101 | 10001 | ËïÎò¿Õ    | 11111   |
+|  102 | 20001 | ²ÜÃÏµÂ    | NULL    |
+|  102 | 20002 | ËïÖÙÄ±    | NULL    |
++------+-------+-----------+---------+
+4 rows in set (0.00 sec)
+
+mysql>
