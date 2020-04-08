@@ -1,4 +1,4 @@
-package 包装类;
+﻿package 包装类;
 /*
 基本数据类型和包装类对应
 int-Integer byte-Byte short-Short long_Long float-Float
